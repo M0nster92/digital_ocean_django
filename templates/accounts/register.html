@@ -1,0 +1,14 @@
+{% block content %}
+
+<h3>Register</h3>
+{% if not request.user.is_authenticated %}
+<div>
+  <form method="POST">
+    {% csrf_token %} {{form}}
+    <button type="submit">Register</button>
+  </form>
+  <p>Already have an account? <a href="/accounts/login/">login</a></p>
+</div>
+{% else %}
+<p>You are logged in. <a href="/accounts/logout">Logout?</a></p>
+{% endif %} {% endblock content %}
