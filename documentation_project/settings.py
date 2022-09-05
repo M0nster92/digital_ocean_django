@@ -81,12 +81,13 @@ WSGI_APPLICATION = 'documentation_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.environ.get('DEVELOPMENT_MODE') == 'DEV':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
 
 POSTGRES_DB = os.environ.get("POSTGRES_DB")
 POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
