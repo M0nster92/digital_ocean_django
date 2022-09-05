@@ -152,6 +152,6 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 STATIC_ROOT = Path(BASE_DIR).joinpath('staticfiles')
 STATICFILES_DIRS = (Path(BASE_DIR).joinpath('static'),)
