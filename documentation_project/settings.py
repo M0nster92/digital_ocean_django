@@ -27,9 +27,7 @@ SECRET_KEY = os.environ.get(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(os.environ.get('DEBUG')) == '1'
 
-ALLOWED_HOSTS = []
-if not DEBUG:
-    ALLOWED_HOSTS += [os.environ.get('DJANGO_ALLOWED_HOST')]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -156,5 +154,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = Path(BASE_DIR).joinpath('staticfiles')
-
-STATICFILES_DIRS = (os.path.join('static'), )
+STATICFILES_DIRS = (Path(BASE_DIR).joinpath('static'),)
